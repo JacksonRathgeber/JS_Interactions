@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JavaScript Demonstration Page</title>
+</head>
+<body>
+
+  <br><br>
+  <label>Which 2010s Pop Artist Are You?
+    <input id="fortune-input">
+  </label>
+  <button id="fortune-button">Enter</button>
+  <br><br>
+  <div id="fortune-output"></div>
+
+  <script>
+
+  let nameArray = ["Justin Bieber", "Adele", "Drake", "The Weeknd", "Taylor Swift", 
+    "Twenty One Pilots", "Selena Gomez", "One Direction", "Shawn Mendes", "Meghan Trainor", "Ellie Goulding", "Fall Out Boy", "Charlie Puth"];
+
+  document.getElementById("fortune-button").addEventListener("click", function(){
+    if(document.getElementById("fortune-input").value){
+      generate();
+      restyle();
+    }
+    else{
+
+    }
+  });
+
+  function generate(){
+    let input=document.getElementById("fortune-input").value;
+
+    let artName=nameArray[Math.floor(Math.random()*nameArray.length)];
+    
+    document.getElementById("fortune-output").innerHTML=input+", Your Artist is "+artName+"!";
+  }
+
+  function restyle(){
+    
+    var randR=Math.random()*255;
+    var randG=Math.random()*255;
+    var randB=Math.random()*255;
+    var randOutputColor="rgb("+randR+","+randG+","+randB+")";
+    document.getElementById("fortune-output").style.color=randOutputColor;
+
+
+    var newSize=(Math.random()*45).toString()+"px";
+    document.getElementById("fortune-output").style.fontSize = newSize;
+    console.log(newSize);
+
+
+    document.getElementById("fortune-output").style.textDecoration = "underline";
+
+    var newThick=(Math.random()*4).toString()+"px";
+    document.getElementById("fortune-output").style.textDecorationThickness = newThick;
+  }
+  
+  </script>
+
+</body>
+</html>
